@@ -1,0 +1,93 @@
+name: Auto-grading TP
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'eleves/**/*.py'
+      - 'tests/**/*.py'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: tp_user
+          POSTGRES_PASSWORD: tp_password
+          POSTGRES_DB: tp_grading
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:8432
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest psycopg2-binary python-dotenv
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Setup database
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: tp_user
+        DB_PASSWORD: tp_password
+        DB_NAME: tp_grading
+      run: |
+        python scripts/setup_db.py
+    
+    - name: Run tests for all students
+      id: test_results
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: tp_user
+        DB_PASSWORD: tp_password
+        DB_NAME: tp_grading
+      run: |
+        python scripts/run_all_tests.py
+      continue-on-error: true
+    
+    - name: Save results to database
+      if: always()
+      env:
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: tp_user
+        DB_PASSWORD: tp_password
+        DB_NAME: tp_grading
+        GITHUB_ACTOR: ${{ github.actor }}
+        GITHUB_TIMESTAMP: ${{ github.event.head_commit.timestamp }}
+      run: |
+        python scripts/save_results.py
+      continue-on-error: true
+    
+    - name: Comment PR with results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const results = fs.readFileSync('test_results.txt', 'utf8');
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '## 📊 Résultats des tests\n\n' + results
+          });
