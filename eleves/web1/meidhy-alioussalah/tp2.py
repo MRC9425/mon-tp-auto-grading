@@ -36,10 +36,10 @@ for l in mot:
 # Affichez chaque lettre du mot "programmation" avec sa position
 # Exemple résultat : "p:0 r:1 o:2 g:3..." (comme string ou dict)
 mot = donnees["ex2_mot"]
-resultat_ex2 = ""
+resultat_ex2 = {}
 i=0
 for l in mot:
-    resultat_ex2 += f"{l} : {i} "
+    resultat_ex2[i] = l
     i += 1 
 
 
@@ -134,10 +134,10 @@ chiffre_inverse = []
 while temp > 0: 
     chiffre_inverse.append(temp % 10)
     temp = temp // 10
-resultat_ex11 = []
+resultat_ex11 = ""
 i = 0
 while i <len(chiffre_inverse):
-    resultat_ex11.append(chiffre_inverse[len(chiffre_inverse) - 1 - i])
+    resultat_ex11 += chr(chiffre_inverse[len(chiffre_inverse) - 1 - i] + 48)
     i += 1
 
 
