@@ -180,7 +180,7 @@ i = 0
 while i < len(mot):
     if mot[i] == caractere and resultat_ex7 == -1:
         resultat_ex7 = i
-        i = len(mot)  # forcer la sortie sans break
+        i = len(mot)  
     i = i + 1
 
 # ========================================================
@@ -328,7 +328,7 @@ i = 0
 while i < len(propositions):
     resultat_ex13 = resultat_ex13 + 1
     if propositions[i] == cible:
-        i = len(propositions)  # forcer la sortie sans break
+        i = len(propositions)  
     i = i + 1
 
 
