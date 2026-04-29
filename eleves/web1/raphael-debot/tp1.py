@@ -38,7 +38,7 @@ resultat_ex1 = "Bienvenue dans la formation Python !"
 # Bonjour !
 # Bienvenue dans le monde de la programmation Python.
 # Amusez-vous bien !
-resultat_ex2 = None
+resultat_ex2 = "Bonjour !\nBienvenue dans le monde de la programmation Python.\nAmusez-vous bien !"
 
 
 # EXERCICE 3 : Addition simple
