@@ -1,0 +1,184 @@
+═══════════════════════════════════════════════════════════════════════════════
+ATELIER AUTO-CORRECTION PYTHON - WEB2
+═══════════════════════════════════════════════════════════════════════════════
+
+DEADLINE: AVANT MINUIT DEMAIN
+
+═══════════════════════════════════════════════════════════════════════════════
+
+BIENVENUE
+
+Ce système auto-corrige automatiquement vos exercices Python.
+Chaque exercice sera vérifié par des tests automatiques.
+
+Si tous les tests passent, vous avez bon.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+EXERCICES A FAIRE
+
+Atelier 1: Introduction à Python (15 exercices)
+- Variables et types de base
+- Opérations arithmétiques
+- Affichage et conversions
+
+Atelier 2: Manipulation des caractères (13 exercices)
+- Codes ASCII
+- Conversions de nombres
+- Chaînes de caractères
+
+Atelier 3: Algorithmique sur chaînes (15 exercices)
+- Manipulation de texte
+- Recherche et comptage
+- Inversions et transformations
+
+Atelier 4: Boucles while (15 exercices)
+- Comptages et sommes
+- Validation et recherche
+- Jeux et calculs avancés
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ETAPES A SUIVRE
+
+ÉTAPE 1: CRÉER UN DOSSIER AVEC TON NOM
+───────────────────────────────────────
+
+Ouvre un terminal/PowerShell dans le dossier du projet.
+
+Tape la commande avec TON PRÉNOM et TON NOM en minuscules, séparés par un trait:
+
+   mkdir -p eleves/web2/prenom-nom
+
+Exemples:
+   • Mohamed Najib: mkdir -p eleves/web2/mohamed-najib
+   • Eiji Haubursin: mkdir -p eleves/web2/eiji-haubursin
+   • Tiromana Tupea: mkdir -p eleves/web2/tiromana-tupea
+   • Bruce Wuthrich: mkdir -p eleves/web2/bruce-wuthrich
+   • Irina Savastre: mkdir -p eleves/web2/irina-savastre
+   • John David Tchomgui Noumbiap: mkdir -p eleves/web2/john-noumbiap
+   • Maxim Pacini: mkdir -p eleves/web2/maxim-pacini
+   • Christophe Kwizera: mkdir -p eleves/web2/christophe-kwizera
+
+
+ÉTAPE 2: COPIER LES TEMPLATES
+──────────────────────────────
+
+Copie les 4 fichiers template dans TON dossier:
+
+   cp tp1_template_VIDE.py eleves/web2/prenom-nom/tp1.py
+   cp tp2_template_VIDE.py eleves/web2/prenom-nom/tp2.py
+   cp tp3_template_VIDE.py eleves/web2/prenom-nom/tp3.py
+   cp tp4_template_VIDE.py eleves/web2/prenom-nom/tp4.py
+
+(Remplace "prenom-nom" par TON dossier créé à l'étape 1)
+
+Exemple (Mohamed Najib):
+   cp tp1_template_VIDE.py eleves/web2/mohamed-najib/tp1.py
+   cp tp2_template_VIDE.py eleves/web2/mohamed-najib/tp2.py
+   cp tp3_template_VIDE.py eleves/web2/mohamed-najib/tp3.py
+   cp tp4_template_VIDE.py eleves/web2/mohamed-najib/tp4.py
+
+
+ÉTAPE 3: REMPLIR LES EXERCICES
+──────────────────────────────
+
+Ouvre chaque fichier (tp1.py, tp2.py, tp3.py, tp4.py) dans VS Code.
+
+Pour chaque exercice:
+   - Lis la consigne en commentaire
+   - Remplace resultat_exN = None par ta solution
+   - Vérifie que c'est correct
+
+Exemple:
+
+   # EXERCICE 1: Afficher un message
+   resultat_ex1 = None
+
+   Remplace par:
+   resultat_ex1 = "Bienvenue dans la formation Python"
+
+   # EXERCICE 2: Afficher plusieurs lignes
+   resultat_ex2 = """Bonjour!
+Bienvenue dans le monde de la programmation Python.
+Amusez-vous bien!"""
+
+
+ÉTAPE 4: TESTER TON CODE LOCALEMENT
+────────────────────────────────────
+
+Avant de pousser, teste que tes exercices sont corrects.
+
+Lance les tests pytest pour chaque atelier:
+
+   python -m pytest tests/test_tp1.py -v
+   python -m pytest tests/test_tp2.py -v
+   python -m pytest tests/test_tp3.py -v
+   python -m pytest tests/test_tp4.py -v
+
+Tu devrais voir:
+
+   test_ex1_... PASSED
+   test_ex2_... PASSED
+   test_ex3_... PASSED
+   ...
+   15 passed
+
+Si tu as des FAILED, relis ta solution et réessaie.
+
+
+ÉTAPE 5: COMMITTER ET POUSSER
+──────────────────────────────
+
+Quand tout fonctionne, sauvegarde ton travail sur GitHub:
+
+   git add eleves/web2/prenom-nom/
+   git commit -m "Ateliers 1-4: Prenom Nom WEB2"
+   git push origin main
+
+Exemple (Mohamed Najib):
+   git add eleves/web2/mohamed-najib/
+   git commit -m "Ateliers 1-4: Mohamed Najib WEB2"
+   git push origin main
+
+
+ÉTAPE 6: C'EST FINI
+───────────────────
+
+Ton travail est enregistré sur GitHub.
+Le prof verra tes résultats dans le dashboard.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CONSEILS
+
+- Fais les exercices dans l'ordre (Atelier 1, 2, 3, 4). Chaque atelier construit sur les concepts du précédent.
+
+- Teste après chaque atelier. Ne pas attendre la fin pour tout tester.
+
+- Lis bien les consignes en commentaire. Chaque exercice a une explication.
+
+- Si un test échoue, c'est normal. Analyse l'erreur, trouve le bug et corrige.
+
+- N'hésite pas à relire les exemples donnés.
+
+- Tu peux pousser plusieurs fois, aucun problème. Ça sauvegarde ton travail.
+
+- Demande de l'aide au prof si tu bloques. Ne pas rester bloqué seul.
+
+- N'oublie pas le deadline: MINUIT DEMAIN.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+QUESTIONS
+
+Si tu as un problème:
+1. Relis cette instruction
+2. Demande à un camarade
+3. Contacte le prof
+
+═══════════════════════════════════════════════════════════════════════════════
+
+BON COURAGE
+
+═══════════════════════════════════════════════════════════════════════════════

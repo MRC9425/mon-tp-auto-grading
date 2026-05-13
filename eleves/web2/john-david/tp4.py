@@ -55,7 +55,6 @@ resultat_ex1 = None
 N = donnees["ex2"]["N"]
 
 # [ÉCRIVEZ VOTRE CODE ICI]
-
 resultat_ex2 = None
 
 
