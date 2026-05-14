@@ -34,7 +34,7 @@ liste1 = [];
 for i in range(5) :
     liste1.append(i); 
 
-resultat_ex1 = liste1
+resultat_ex1 = liste1;
 
 # EXERCICE 2 : range(start, stop)
 # Construire la liste des valeurs de range(3, 8)
@@ -43,7 +43,7 @@ liste2 = [];
 for i in range(3,8) :
     liste2.append(i);
 
-resultat_ex2 = i;
+resultat_ex2 = liste2;
 
 # EXERCICE 3 : range(start, stop, step)
 # Construire la liste des valeurs de range(2, 10, 3)
@@ -53,7 +53,7 @@ liste3 = [];
 for i in range (2, 10, 3) :
     liste3.append(i);
 
-resultat_ex3 = i;
+resultat_ex3 = liste3;
 
 # EXERCICE 4 : range() négatif
 # Construire la liste des valeurs de range(5, 0, -1)
@@ -63,7 +63,7 @@ liste4 = [];
 for i in range (5, 0, -1) :
     liste4.append(i);
 
-resultat_ex4 = i;
+resultat_ex4 = liste4;
 
 # EXERCICE 5 : Compter des occurrences
 # Compter le nombre de fois que "s" apparaît dans "mississippi"
@@ -75,7 +75,7 @@ compteur5 = 0;
 
 for c in chaine5 :
     if c == cible : 
-        compteur5 += 1
+        compteur5 += 1;
 
         resultat_ex5 = compteur5;
 
@@ -194,9 +194,10 @@ resultat_ex14 = None
 mot15 = "algo";
 mot152 = "alco";
 identification = True;
+position = -1;
 
 for i in range (len(mot15)) :
     if mot15[i] != mot152[i] :
-        identification = False
+        identification = False;
 
-resultat_ex15 = 
+resultat_ex15 = "identiques :", identification , "position :", 
