@@ -40,7 +40,13 @@ resultat_ex1 = res
 mot = donnees["ex2_mot"]
 lettre = donnees["ex2_lettre"]
 # Comptez combien de fois la lettre "a" apparaît
-resultat_ex2 = None
+res = 0
+
+for i in mot:
+    if i == lettre:
+        res = res + 1
+
+resultat_ex2 = res
 
 
 # EXERCICE 3 : Compter les voyelles
