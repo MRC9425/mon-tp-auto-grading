@@ -168,7 +168,32 @@ resultat_ex9 = res
 # EXERCICE 10 : Inverser les mots d'une phrase
 phrase = donnees["ex10_phrase"]
 # "Python est genial" → "genial est Python"
-resultat_ex10 = None
+mots = []
+mot = ""
+
+for i in phrase:
+    if i != " ":
+        mot = mot + i
+    else:
+        if mot != "":
+            mots = mots + [mot]
+            mot = ""
+
+if mot != "":
+    mots = mots + [mot]
+
+res = ""
+position = len(mots) - 1
+
+while position >= 0:
+    if res == "":
+        res = mots[position]
+    else:
+        res = res + " " + mots[position]
+
+    position = position - 1
+
+resultat_ex10 = res
 
 
 # EXERCICE 11 : Supprimer les caractères consécutifs identiques
