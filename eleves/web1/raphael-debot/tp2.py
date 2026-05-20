@@ -60,7 +60,12 @@ resultat_ex3 = ord(char)
 # Utilisez le code ASCII pour déterminer si c'est majuscule ou minuscule
 lettre = donnees["ex4_lettre"]
 # Retournez "majuscule" ou "minuscule"
-resultat_ex4 = None
+code = ord(lettre)
+
+if code >= 65 and code <= 90:
+    resultat_ex4 = "majuscule"
+else:
+    resultat_ex4 = "minuscule"
 
 
 # EXERCICE 5 : Est-ce un chiffre ?
