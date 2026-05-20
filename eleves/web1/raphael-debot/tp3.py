@@ -239,7 +239,23 @@ resultat_ex12 = res
 expression = donnees["ex13_expression"]
 # Vérifiez si les parenthèses sont correctement équilibrées
 # "(a + b) * (c - d)" → True
-resultat_ex13 = None
+compteur = 0
+res = True
+
+for i in expression:
+    if i == "(":
+        compteur = compteur + 1
+
+    if i == ")":
+        compteur = compteur - 1
+
+    if compteur < 0:
+        res = False
+
+if compteur != 0:
+    res = False
+
+resultat_ex13 = res
 
 
 # EXERCICE 14 : Vérifier deux anagrammes
