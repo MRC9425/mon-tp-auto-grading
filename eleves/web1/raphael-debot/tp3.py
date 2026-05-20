@@ -150,7 +150,19 @@ resultat_ex8 = mot_plus_long
 # EXERCICE 9 : Supprimer les espaces multiples
 phrase = donnees["ex9_phrase"]
 # Transformez "Bonjour  tout   le    monde" en "Bonjour tout le monde"
-resultat_ex9 = None
+res = ""
+espace_avant = False
+
+for i in phrase:
+    if i != " ":
+        res = res + i
+        espace_avant = False
+    else:
+        if espace_avant == False:
+            res = res + " "
+            espace_avant = True
+
+resultat_ex9 = res
 
 
 # EXERCICE 10 : Inverser les mots d'une phrase
