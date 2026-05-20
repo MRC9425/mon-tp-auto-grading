@@ -27,7 +27,12 @@ donnees = {
 # Créez une liste contenant chaque caractère du mot "python"
 # Exemple résultat : ['p', 'y', 't', 'h', 'o', 'n']
 mot = donnees["ex1_mot"]
-resultat_ex1 = None
+res = []
+for i in mot:
+    res = res + [i]
+    
+resultat_ex1 = res
+
 
 
 # EXERCICE 2 : Position des caractères
