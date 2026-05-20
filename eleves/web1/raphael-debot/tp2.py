@@ -162,7 +162,15 @@ resultat_ex10 = nombre1 + nombre2
 nombre = donnees["ex11_nombre"]
 # Affichez les chiffres un par un en utilisant % et //
 # 1234 → ['1', '2', '3', '4'] ou "1234"
-resultat_ex11 = None
+res = ""
+chiffres = "0123456789"
+
+while nombre > 0:
+    chiffre = nombre % 10
+    res = chiffres[chiffre] + res
+    nombre = nombre // 10
+
+resultat_ex11 = res
 
 
 # EXERCICE 12 : Inverser un nombre
