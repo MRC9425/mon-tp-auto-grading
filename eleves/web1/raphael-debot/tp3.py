@@ -294,4 +294,33 @@ phrase = donnees["ex15_phrase"]
 # - "nombre_mots": nombre de mots
 # - "mot_le_plus_long": le mot le plus long
 # - "nombre_caracteres": nombre total de caractères (sans espaces)
-resultat_ex15 = None
+nombre_mots = 0
+mot_actuel = ""
+mot_plus_long = ""
+nombre_caracteres = 0
+dans_mot = False
+
+for i in phrase:
+    if i != " ":
+        nombre_caracteres = nombre_caracteres + 1
+        mot_actuel = mot_actuel + i
+
+        if dans_mot == False:
+            nombre_mots = nombre_mots + 1
+            dans_mot = True
+    else:
+        if len(mot_actuel) > len(mot_plus_long):
+            mot_plus_long = mot_actuel
+
+        mot_actuel = ""
+        dans_mot = False
+
+# vérifier le dernier mot
+if len(mot_actuel) > len(mot_plus_long):
+    mot_plus_long = mot_actuel
+
+resultat_ex15 = {
+    "nombre_mots": nombre_mots,
+    "mot_plus_long": mot_plus_long,
+    "nombre_caracteres": nombre_caracteres
+}
