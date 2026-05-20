@@ -90,7 +90,18 @@ else:
 # EXERCICE 6 : Compter les mots
 phrase = donnees["ex6_phrase"]
 # Comptez combien de mots la phrase contient (sans utiliser split)
-resultat_ex6 = None
+res = 0
+dans_mot = False
+
+for i in phrase:
+    if i != " " and dans_mot == False:
+        res = res + 1
+        dans_mot = True
+
+    if i == " ":
+        dans_mot = False
+
+resultat_ex6 = res
 
 
 # EXERCICE 7 : Supprimer les espaces en début et fin
