@@ -177,7 +177,14 @@ resultat_ex11 = res
 nombre = donnees["ex12_nombre"]
 # Affichez le nombre avec chiffres inversés
 # 5678 → 8765
-resultat_ex12 = None
+res = 0
+
+while nombre > 0:
+    chiffre = nombre % 10
+    res = res * 10 + chiffre
+    nombre = nombre // 10
+
+resultat_ex12 = res
 
 
 # EXERCICE 13 : Bonus - Calculatrice simple
@@ -186,4 +193,30 @@ expression = donnees["ex13_expression"]
 # Identifiez les nombres et l'opérateur
 # Retournez le résultat du calcul
 # "12+3" → 15
-resultat_ex13 = None
+nombre_gauche = 0
+nombre_droite = 0
+operateur = ""
+partie_droite = False
+
+for i in expression:
+    code = ord(i)
+
+    if code >= 48 and code <= 57:
+        chiffre = ord(i) - ord("0")
+
+        if partie_droite == False:
+            nombre_gauche = nombre_gauche * 10 + chiffre
+        else:
+            nombre_droite = nombre_droite * 10 + chiffre
+    else:
+        operateur = i
+        partie_droite = True
+
+if operateur == "+":
+    resultat_ex13 = nombre_gauche + nombre_droite
+elif operateur == "-":
+    resultat_ex13 = nombre_gauche - nombre_droite
+elif operateur == "*":
+    resultat_ex13 = nombre_gauche * nombre_droite
+elif operateur == "/":
+    resultat_ex13 = nombre_gauche / nombre_droite
