@@ -113,7 +113,13 @@ resultat_ex7 = res
 # Utilisez la formule : resultat = resultat * 10 + chiffre
 nombre_text = donnees["ex8_nombre_text"]
 # Convertissez "42" en nombre 42 (sans utiliser int())
-resultat_ex8 = None
+res = 0
+
+for i in nombre_text:
+    chiffre = ord(i) - ord("0")
+    res = res * 10 + chiffre
+
+resultat_ex8 = res
 
 
 # EXERCICE 9 : Vérifier une entrée numérique
