@@ -128,7 +128,23 @@ resultat_ex7 = res
 # EXERCICE 8 : Trouver le mot le plus long
 phrase = donnees["ex8_phrase"]
 # Retournez le mot le plus long de la phrase (sans utiliser split)
-resultat_ex8 = None
+mot_actuel = ""
+mot_plus_long = ""
+
+for i in phrase:
+    if i != " ":
+        mot_actuel = mot_actuel + i
+    else:
+        if len(mot_actuel) > len(mot_plus_long):
+            mot_plus_long = mot_actuel
+
+        mot_actuel = ""
+
+# vérifier aussi le dernier mot
+if len(mot_actuel) > len(mot_plus_long):
+    mot_plus_long = mot_actuel
+
+resultat_ex8 = mot_plus_long
 
 
 # EXERCICE 9 : Supprimer les espaces multiples
