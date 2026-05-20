@@ -127,7 +127,15 @@ texte = donnees["ex9_texte"]
 # Vérifiez si le texte ne contient QUE des chiffres
 # "123abc456" → False (contient des lettres)
 # "123456" → True
-resultat_ex9 = None
+res = True
+
+for i in texte:
+    code = ord(i)
+
+    if code < 48 or code > 57:
+        res = False
+
+resultat_ex9 = res
 
 
 # EXERCICE 10 : Mini addition de nombres texte
@@ -135,7 +143,19 @@ num1_text = str(donnees["ex10_num1"])  # "12"
 num2_text = str(donnees["ex10_num2"])  # "3"
 # Convertissez manuellement en nombres (sans int())
 # puis additionnez et retournez le résultat
-resultat_ex10 = None
+nombre1 = 0
+
+for i in num1_text:
+    chiffre = ord(i) - ord("0")
+    nombre1 = nombre1 * 10 + chiffre
+
+nombre2 = 0
+
+for i in num2_text:
+    chiffre = ord(i) - ord("0")
+    nombre2 = nombre2 * 10 + chiffre
+
+resultat_ex10 = nombre1 + nombre2
 
 
 # EXERCICE 11 : Extraire les chiffres d'un nombre
