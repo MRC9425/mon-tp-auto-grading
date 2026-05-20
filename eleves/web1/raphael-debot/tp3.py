@@ -52,7 +52,13 @@ resultat_ex2 = res
 # EXERCICE 3 : Compter les voyelles
 mot = donnees["ex3_mot"]
 # Comptez les voyelles (a, e, i, o, u, y)
-resultat_ex3 = None
+res = 0
+
+for i in mot:
+    if i == "a" or i == "e" or i == "i" or i == "o" or i == "u" or i == "y":
+        res = res + 1
+
+resultat_ex3 = res
 
 
 # EXERCICE 4 : Inverser une chaîne
