@@ -84,7 +84,15 @@ else:
 phrase = donnees["ex6_phrase"]
 # Comptez combien de chiffres (0-9) la phrase contient
 # Indice : ord('0') = 48, ord('9') = 57
-resultat_ex6 = None
+res = 0
+
+for i in phrase:
+    code = ord(i)
+
+    if code >= 48 and code <= 57:
+        res = res + 1
+
+resultat_ex6 = res
 
 
 # EXERCICE 7 : Somme des chiffres d'un texte
