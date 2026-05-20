@@ -214,7 +214,25 @@ resultat_ex11 = res
 # EXERCICE 12 : Compression simple d'une chaîne
 chaine = donnees["ex12_chaine"]
 # "aaabbc" → "a3b2c1"
-resultat_ex12 = None
+res = ""
+precedent = ""
+compteur = 0
+chiffres = "0123456789"
+
+for i in chaine:
+    if precedent == "":
+        precedent = i
+        compteur = 1
+    elif i == precedent:
+        compteur = compteur + 1
+    else:
+        res = res + precedent + chiffres[compteur]
+        precedent = i
+        compteur = 1
+
+res = res + precedent + chiffres[compteur]
+
+resultat_ex12 = res
 
 
 # EXERCICE 13 : Vérifier des parenthèses équilibrées
