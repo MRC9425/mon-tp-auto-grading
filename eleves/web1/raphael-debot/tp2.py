@@ -53,7 +53,7 @@ resultat_ex2 = res
 # Retournez le code ASCII d'un caractère avec ord()
 char = donnees["ex3_char"]
 # Code ASCII de "A"
-resultat_ex3 = None
+resultat_ex3 = ord(char)
 
 
 # EXERCICE 4 : Majuscule ou minuscule
