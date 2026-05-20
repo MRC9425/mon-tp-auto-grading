@@ -263,7 +263,29 @@ mot1 = donnees["ex14_mot1"]
 mot2 = donnees["ex14_mot2"]
 # Vérifiez si les deux mots sont des anagrammes
 # "listen" et "silent" → True
-resultat_ex14 = None
+res = True
+
+if len(mot1) != len(mot2):
+    res = False
+else:
+    lettres = "abcdefghijklmnopqrstuvwxyz"
+
+    for lettre in lettres:
+        compteur1 = 0
+        compteur2 = 0
+
+        for i in mot1:
+            if i == lettre:
+                compteur1 = compteur1 + 1
+
+        for i in mot2:
+            if i == lettre:
+                compteur2 = compteur2 + 1
+
+        if compteur1 != compteur2:
+            res = False
+
+resultat_ex14 = res
 
 
 # EXERCICE 15 : Mini analyseur de phrase
