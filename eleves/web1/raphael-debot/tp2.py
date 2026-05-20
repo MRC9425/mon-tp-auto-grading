@@ -99,7 +99,13 @@ resultat_ex6 = res
 chiffres_text = donnees["ex7_chiffres"]
 # Convertissez chaque caractère chiffre en nombre et additionnez
 # "1352" → 1 + 3 + 5 + 2 = 11
-resultat_ex7 = None
+res = 0
+
+for i in chiffres_text:
+    chiffre = ord(i) - ord("0")
+    res = res + chiffre
+
+resultat_ex7 = res
 
 
 # EXERCICE 8 : Construire un nombre
