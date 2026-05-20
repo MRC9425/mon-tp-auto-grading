@@ -30,7 +30,6 @@ mot = donnees["ex1_mot"]
 res = []
 for i in mot:
     res = res + [i]
-    
 resultat_ex1 = res
 
 
@@ -39,7 +38,15 @@ resultat_ex1 = res
 # Affichez chaque lettre du mot "programmation" avec sa position
 # Exemple résultat : "p:0 r:1 o:2 g:3..." (comme string ou dict)
 mot = donnees["ex2_mot"]
-resultat_ex2 = None
+
+res = {}
+position = 0
+
+for i in mot:
+    res[position] = i
+    position = position + 1
+
+resultat_ex2 = res
 
 
 # EXERCICE 3 : Codes des caractères
