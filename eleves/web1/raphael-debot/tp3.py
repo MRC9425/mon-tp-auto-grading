@@ -199,7 +199,16 @@ resultat_ex10 = res
 # EXERCICE 11 : Supprimer les caractères consécutifs identiques
 chaine = donnees["ex11_chaine"]
 # "booonnjooour" → "bonjour"
-resultat_ex11 = None
+res = ""
+precedent = ""
+
+for i in chaine:
+    if i != precedent:
+        res = res + i
+
+    precedent = i
+
+resultat_ex11 = res
 
 
 # EXERCICE 12 : Compression simple d'une chaîne
