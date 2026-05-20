@@ -107,7 +107,22 @@ resultat_ex6 = res
 # EXERCICE 7 : Supprimer les espaces en début et fin
 phrase = donnees["ex7_phrase"]
 # Retournez la phrase sans espaces au début et fin
-resultat_ex7 = None
+debut = 0
+fin = len(phrase) - 1
+
+while debut < len(phrase) and phrase[debut] == " ":
+    debut = debut + 1
+
+while fin >= 0 and phrase[fin] == " ":
+    fin = fin - 1
+
+res = ""
+
+while debut <= fin:
+    res = res + phrase[debut]
+    debut = debut + 1
+
+resultat_ex7 = res
 
 
 # EXERCICE 8 : Trouver le mot le plus long
