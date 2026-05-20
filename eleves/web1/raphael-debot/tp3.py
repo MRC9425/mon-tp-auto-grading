@@ -28,7 +28,12 @@ donnees = {
 # EXERCICE 1 : Parcourir une chaîne
 # Créez une liste avec chaque caractère du mot "algorithmique"
 mot = donnees["ex1_mot"]
-resultat_ex1 = None
+res = []
+
+for i in mot:
+    res = res + [i]
+
+resultat_ex1 = res
 
 
 # EXERCICE 2 : Compter une lettre
