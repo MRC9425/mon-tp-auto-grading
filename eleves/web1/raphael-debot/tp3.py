@@ -76,7 +76,15 @@ resultat_ex4 = res
 mot = donnees["ex5_mot"]
 # Vérifiez si le mot se lit pareil dans les deux sens
 # "radar" → True
-resultat_ex5 = None
+inverse = ""
+
+for i in mot:
+    inverse = i + inverse
+
+if mot == inverse:
+    resultat_ex5 = True
+else:
+    resultat_ex5 = False
 
 
 # EXERCICE 6 : Compter les mots
