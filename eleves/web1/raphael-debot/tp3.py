@@ -64,7 +64,12 @@ resultat_ex3 = res
 # EXERCICE 4 : Inverser une chaîne
 mot = donnees["ex4_mot"]
 # Affichez le mot à l'envers : "hello" → "olleh"
-resultat_ex4 = None
+res = ""
+
+for i in mot:
+    res = i + res
+
+resultat_ex4 = res
 
 
 # EXERCICE 5 : Vérifier un palindrome
