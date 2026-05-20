@@ -72,7 +72,12 @@ else:
 # Utilisez le code ASCII pour vérifier si c'est un chiffre
 char = donnees["ex5_char"]
 # Retournez True ou False
-resultat_ex5 = None
+code = ord(char)
+
+if code >= 48 and code <= 57:
+    resultat_ex5 = True
+else:
+    resultat_ex5 = False
 
 
 # EXERCICE 6 : Compter les chiffres dans un texte
