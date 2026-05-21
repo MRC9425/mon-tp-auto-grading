@@ -27,49 +27,85 @@ donnees = {
 # Créez une liste contenant chaque caractère du mot "python"
 # Exemple résultat : ['p', 'y', 't', 'h', 'o', 'n']
 mot = donnees["ex1_mot"]
-resultat_ex1 = None
+res = []
+for i in mot:
+    res = res + [i]
+resultat_ex1 = res
+
 
 
 # EXERCICE 2 : Position des caractères
 # Affichez chaque lettre du mot "programmation" avec sa position
 # Exemple résultat : "p:0 r:1 o:2 g:3..." (comme string ou dict)
 mot = donnees["ex2_mot"]
-resultat_ex2 = None
+
+res = {}
+position = 0
+
+for i in mot:
+    res[position] = i
+    position = position + 1
+
+resultat_ex2 = res
 
 
 # EXERCICE 3 : Codes des caractères
 # Retournez le code ASCII d'un caractère avec ord()
 char = donnees["ex3_char"]
 # Code ASCII de "A"
-resultat_ex3 = None
+resultat_ex3 = ord(char)
 
 
 # EXERCICE 4 : Majuscule ou minuscule
 # Utilisez le code ASCII pour déterminer si c'est majuscule ou minuscule
 lettre = donnees["ex4_lettre"]
 # Retournez "majuscule" ou "minuscule"
-resultat_ex4 = None
+code = ord(lettre)
+
+if code >= 65 and code <= 90:
+    resultat_ex4 = "majuscule"
+else:
+    resultat_ex4 = "minuscule"
 
 
 # EXERCICE 5 : Est-ce un chiffre ?
 # Utilisez le code ASCII pour vérifier si c'est un chiffre
 char = donnees["ex5_char"]
 # Retournez True ou False
-resultat_ex5 = None
+code = ord(char)
+
+if code >= 48 and code <= 57:
+    resultat_ex5 = True
+else:
+    resultat_ex5 = False
 
 
 # EXERCICE 6 : Compter les chiffres dans un texte
 phrase = donnees["ex6_phrase"]
 # Comptez combien de chiffres (0-9) la phrase contient
 # Indice : ord('0') = 48, ord('9') = 57
-resultat_ex6 = None
+res = 0
+
+for i in phrase:
+    code = ord(i)
+
+    if code >= 48 and code <= 57:
+        res = res + 1
+
+resultat_ex6 = res
 
 
 # EXERCICE 7 : Somme des chiffres d'un texte
 chiffres_text = donnees["ex7_chiffres"]
 # Convertissez chaque caractère chiffre en nombre et additionnez
 # "1352" → 1 + 3 + 5 + 2 = 11
-resultat_ex7 = None
+res = 0
+
+for i in chiffres_text:
+    chiffre = ord(i) - ord("0")
+    res = res + chiffre
+
+resultat_ex7 = res
 
 
 # EXERCICE 8 : Construire un nombre
@@ -77,7 +113,13 @@ resultat_ex7 = None
 # Utilisez la formule : resultat = resultat * 10 + chiffre
 nombre_text = donnees["ex8_nombre_text"]
 # Convertissez "42" en nombre 42 (sans utiliser int())
-resultat_ex8 = None
+res = 0
+
+for i in nombre_text:
+    chiffre = ord(i) - ord("0")
+    res = res * 10 + chiffre
+
+resultat_ex8 = res
 
 
 # EXERCICE 9 : Vérifier une entrée numérique
@@ -85,7 +127,15 @@ texte = donnees["ex9_texte"]
 # Vérifiez si le texte ne contient QUE des chiffres
 # "123abc456" → False (contient des lettres)
 # "123456" → True
-resultat_ex9 = None
+res = True
+
+for i in texte:
+    code = ord(i)
+
+    if code < 48 or code > 57:
+        res = False
+
+resultat_ex9 = res
 
 
 # EXERCICE 10 : Mini addition de nombres texte
@@ -93,21 +143,48 @@ num1_text = str(donnees["ex10_num1"])  # "12"
 num2_text = str(donnees["ex10_num2"])  # "3"
 # Convertissez manuellement en nombres (sans int())
 # puis additionnez et retournez le résultat
-resultat_ex10 = None
+nombre1 = 0
+
+for i in num1_text:
+    chiffre = ord(i) - ord("0")
+    nombre1 = nombre1 * 10 + chiffre
+
+nombre2 = 0
+
+for i in num2_text:
+    chiffre = ord(i) - ord("0")
+    nombre2 = nombre2 * 10 + chiffre
+
+resultat_ex10 = nombre1 + nombre2
 
 
 # EXERCICE 11 : Extraire les chiffres d'un nombre
 nombre = donnees["ex11_nombre"]
 # Affichez les chiffres un par un en utilisant % et //
 # 1234 → ['1', '2', '3', '4'] ou "1234"
-resultat_ex11 = None
+res = ""
+chiffres = "0123456789"
+
+while nombre > 0:
+    chiffre = nombre % 10
+    res = chiffres[chiffre] + res
+    nombre = nombre // 10
+
+resultat_ex11 = res
 
 
 # EXERCICE 12 : Inverser un nombre
 nombre = donnees["ex12_nombre"]
 # Affichez le nombre avec chiffres inversés
 # 5678 → 8765
-resultat_ex12 = None
+res = 0
+
+while nombre > 0:
+    chiffre = nombre % 10
+    res = res * 10 + chiffre
+    nombre = nombre // 10
+
+resultat_ex12 = res
 
 
 # EXERCICE 13 : Bonus - Calculatrice simple
@@ -116,4 +193,30 @@ expression = donnees["ex13_expression"]
 # Identifiez les nombres et l'opérateur
 # Retournez le résultat du calcul
 # "12+3" → 15
-resultat_ex13 = None
+nombre_gauche = 0
+nombre_droite = 0
+operateur = ""
+partie_droite = False
+
+for i in expression:
+    code = ord(i)
+
+    if code >= 48 and code <= 57:
+        chiffre = ord(i) - ord("0")
+
+        if partie_droite == False:
+            nombre_gauche = nombre_gauche * 10 + chiffre
+        else:
+            nombre_droite = nombre_droite * 10 + chiffre
+    else:
+        operateur = i
+        partie_droite = True
+
+if operateur == "+":
+    resultat_ex13 = nombre_gauche + nombre_droite
+elif operateur == "-":
+    resultat_ex13 = nombre_gauche - nombre_droite
+elif operateur == "*":
+    resultat_ex13 = nombre_gauche * nombre_droite
+elif operateur == "/":
+    resultat_ex13 = nombre_gauche / nombre_droite

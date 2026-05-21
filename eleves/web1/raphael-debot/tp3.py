@@ -28,82 +28,234 @@ donnees = {
 # EXERCICE 1 : Parcourir une chaîne
 # Créez une liste avec chaque caractère du mot "algorithmique"
 mot = donnees["ex1_mot"]
-resultat_ex1 = None
+res = []
+
+for i in mot:
+    res = res + [i]
+
+resultat_ex1 = res
 
 
 # EXERCICE 2 : Compter une lettre
 mot = donnees["ex2_mot"]
 lettre = donnees["ex2_lettre"]
 # Comptez combien de fois la lettre "a" apparaît
-resultat_ex2 = None
+res = 0
+
+for i in mot:
+    if i == lettre:
+        res = res + 1
+
+resultat_ex2 = res
 
 
 # EXERCICE 3 : Compter les voyelles
 mot = donnees["ex3_mot"]
 # Comptez les voyelles (a, e, i, o, u, y)
-resultat_ex3 = None
+res = 0
+
+for i in mot:
+    if i == "a" or i == "e" or i == "i" or i == "o" or i == "u" or i == "y":
+        res = res + 1
+
+resultat_ex3 = res
 
 
 # EXERCICE 4 : Inverser une chaîne
 mot = donnees["ex4_mot"]
 # Affichez le mot à l'envers : "hello" → "olleh"
-resultat_ex4 = None
+res = ""
+
+for i in mot:
+    res = i + res
+
+resultat_ex4 = res
 
 
 # EXERCICE 5 : Vérifier un palindrome
 mot = donnees["ex5_mot"]
 # Vérifiez si le mot se lit pareil dans les deux sens
 # "radar" → True
-resultat_ex5 = None
+inverse = ""
+
+for i in mot:
+    inverse = i + inverse
+
+if mot == inverse:
+    resultat_ex5 = True
+else:
+    resultat_ex5 = False
 
 
 # EXERCICE 6 : Compter les mots
 phrase = donnees["ex6_phrase"]
 # Comptez combien de mots la phrase contient (sans utiliser split)
-resultat_ex6 = None
+res = 0
+dans_mot = False
+
+for i in phrase:
+    if i != " " and dans_mot == False:
+        res = res + 1
+        dans_mot = True
+
+    if i == " ":
+        dans_mot = False
+
+resultat_ex6 = res
 
 
 # EXERCICE 7 : Supprimer les espaces en début et fin
 phrase = donnees["ex7_phrase"]
 # Retournez la phrase sans espaces au début et fin
-resultat_ex7 = None
+debut = 0
+fin = len(phrase) - 1
+
+while debut < len(phrase) and phrase[debut] == " ":
+    debut = debut + 1
+
+while fin >= 0 and phrase[fin] == " ":
+    fin = fin - 1
+
+res = ""
+
+while debut <= fin:
+    res = res + phrase[debut]
+    debut = debut + 1
+
+resultat_ex7 = res
 
 
 # EXERCICE 8 : Trouver le mot le plus long
 phrase = donnees["ex8_phrase"]
 # Retournez le mot le plus long de la phrase (sans utiliser split)
-resultat_ex8 = None
+mot_actuel = ""
+mot_plus_long = ""
+
+for i in phrase:
+    if i != " ":
+        mot_actuel = mot_actuel + i
+    else:
+        if len(mot_actuel) > len(mot_plus_long):
+            mot_plus_long = mot_actuel
+
+        mot_actuel = ""
+
+# vérifier aussi le dernier mot
+if len(mot_actuel) > len(mot_plus_long):
+    mot_plus_long = mot_actuel
+
+resultat_ex8 = mot_plus_long
 
 
 # EXERCICE 9 : Supprimer les espaces multiples
 phrase = donnees["ex9_phrase"]
 # Transformez "Bonjour  tout   le    monde" en "Bonjour tout le monde"
-resultat_ex9 = None
+res = ""
+espace_avant = False
+
+for i in phrase:
+    if i != " ":
+        res = res + i
+        espace_avant = False
+    else:
+        if espace_avant == False:
+            res = res + " "
+            espace_avant = True
+
+resultat_ex9 = res
 
 
 # EXERCICE 10 : Inverser les mots d'une phrase
 phrase = donnees["ex10_phrase"]
 # "Python est genial" → "genial est Python"
-resultat_ex10 = None
+mots = []
+mot = ""
+
+for i in phrase:
+    if i != " ":
+        mot = mot + i
+    else:
+        if mot != "":
+            mots = mots + [mot]
+            mot = ""
+
+if mot != "":
+    mots = mots + [mot]
+
+res = ""
+position = len(mots) - 1
+
+while position >= 0:
+    if res == "":
+        res = mots[position]
+    else:
+        res = res + " " + mots[position]
+
+    position = position - 1
+
+resultat_ex10 = res
 
 
 # EXERCICE 11 : Supprimer les caractères consécutifs identiques
 chaine = donnees["ex11_chaine"]
 # "booonnjooour" → "bonjour"
-resultat_ex11 = None
+res = ""
+precedent = ""
+
+for i in chaine:
+    if i != precedent:
+        res = res + i
+
+    precedent = i
+
+resultat_ex11 = res
 
 
 # EXERCICE 12 : Compression simple d'une chaîne
 chaine = donnees["ex12_chaine"]
 # "aaabbc" → "a3b2c1"
-resultat_ex12 = None
+res = ""
+precedent = ""
+compteur = 0
+chiffres = "0123456789"
+
+for i in chaine:
+    if precedent == "":
+        precedent = i
+        compteur = 1
+    elif i == precedent:
+        compteur = compteur + 1
+    else:
+        res = res + precedent + chiffres[compteur]
+        precedent = i
+        compteur = 1
+
+res = res + precedent + chiffres[compteur]
+
+resultat_ex12 = res
 
 
 # EXERCICE 13 : Vérifier des parenthèses équilibrées
 expression = donnees["ex13_expression"]
 # Vérifiez si les parenthèses sont correctement équilibrées
 # "(a + b) * (c - d)" → True
-resultat_ex13 = None
+compteur = 0
+res = True
+
+for i in expression:
+    if i == "(":
+        compteur = compteur + 1
+
+    if i == ")":
+        compteur = compteur - 1
+
+    if compteur < 0:
+        res = False
+
+if compteur != 0:
+    res = False
+
+resultat_ex13 = res
 
 
 # EXERCICE 14 : Vérifier deux anagrammes
@@ -111,7 +263,29 @@ mot1 = donnees["ex14_mot1"]
 mot2 = donnees["ex14_mot2"]
 # Vérifiez si les deux mots sont des anagrammes
 # "listen" et "silent" → True
-resultat_ex14 = None
+res = True
+
+if len(mot1) != len(mot2):
+    res = False
+else:
+    lettres = "abcdefghijklmnopqrstuvwxyz"
+
+    for lettre in lettres:
+        compteur1 = 0
+        compteur2 = 0
+
+        for i in mot1:
+            if i == lettre:
+                compteur1 = compteur1 + 1
+
+        for i in mot2:
+            if i == lettre:
+                compteur2 = compteur2 + 1
+
+        if compteur1 != compteur2:
+            res = False
+
+resultat_ex14 = res
 
 
 # EXERCICE 15 : Mini analyseur de phrase
@@ -120,4 +294,33 @@ phrase = donnees["ex15_phrase"]
 # - "nombre_mots": nombre de mots
 # - "mot_le_plus_long": le mot le plus long
 # - "nombre_caracteres": nombre total de caractères (sans espaces)
-resultat_ex15 = None
+nombre_mots = 0
+mot_actuel = ""
+mot_plus_long = ""
+nombre_caracteres = 0
+dans_mot = False
+
+for i in phrase:
+    if i != " ":
+        nombre_caracteres = nombre_caracteres + 1
+        mot_actuel = mot_actuel + i
+
+        if dans_mot == False:
+            nombre_mots = nombre_mots + 1
+            dans_mot = True
+    else:
+        if len(mot_actuel) > len(mot_plus_long):
+            mot_plus_long = mot_actuel
+
+        mot_actuel = ""
+        dans_mot = False
+
+# vérifier le dernier mot
+if len(mot_actuel) > len(mot_plus_long):
+    mot_plus_long = mot_actuel
+
+resultat_ex15 = {
+    "nombre_mots": nombre_mots,
+    "mot_plus_long": mot_plus_long,
+    "nombre_caracteres": nombre_caracteres
+}
